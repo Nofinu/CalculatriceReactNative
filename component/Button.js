@@ -3,13 +3,10 @@ import React from 'react'
 
 export default function Button(props) {
 
-  const color={backgroundColor: props.color,borderRadius:props.radius,}
-  const textColor={color: props.textColor? props.textColor : "black"}
-
   return (
-    <Pressable style={[styles.container,color]} onPress={()=>props.addText(props.text)}>
+    <Pressable style={[styles.container, props.radius === "rounded"? styles.rounded : styles.square, props.color === "white"? styles.bgWhite : props.color === "blue" ? styles.bgBlue : props.color === "lightGrey"? styles.bgLightGrey : styles.bgGrey]} onPress={()=>props.addText(props.text)}>
       <View>
-        <Text style={[styles.text,textColor]}>{props.text}</Text>
+        <Text style={[styles.text, props.textColor ? styles.textColorWhite : styles.textColor]}>{props.text}</Text>
       </View>
     </Pressable>
   )
@@ -29,5 +26,29 @@ const styles = StyleSheet.create({
   text:{
     fontSize:20,
     fontWeight:"bold",
+  },
+  textColorWhite:{
+    color:"white",
+  },
+  textColor:{
+    color:"black"
+  },
+  square:{
+    borderRadius:10,
+  },
+  rounded:{
+    borderRadius:100,
+  },
+  bgWhite:{
+    backgroundColor:"white"
+  },
+  bgLightGrey:{
+    backgroundColor:"#2E2E3A",
+  },
+  bgGrey:{
+    backgroundColor:"#232227",
+  },
+  bgBlue:{
+    backgroundColor:"#658A83",
   }
 })
