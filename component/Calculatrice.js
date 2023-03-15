@@ -102,10 +102,12 @@ const styles = StyleSheet.create({
   },
   textContainer:{
     height:"20%",
-    justifyContent:"center",
+    width:"100%",
+    flexDirection:"row-reverse",
     alignItems:"center"
   },
   text:{
     color:"white",
+    marginRight:"5%"
   },
 })
