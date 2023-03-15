@@ -76,7 +76,7 @@ const addText=(text)=>{
 
   return (
     <View style={styles.globalContainer}>
-      <Text style={{color:"white",fontSize:35}}>Calculatrice</Text>
+      <Text style={styles.containerTitle}>Calculatrice</Text>
       <View style={styles.textContainer}>
         <Text style={[styles.text,textWidth]}>{calcul === ""?0:calcul}</Text>
       </View>
@@ -92,6 +92,10 @@ const styles = StyleSheet.create({
     flexDirection:"column",
     justifyContent:"space-evenly",
     alignItems:"center"
+  },
+  containerTitle:{
+    color:"white",
+    fontSize:35
   },
   btnContainer:{
     justifyContent:"space-evenly",
