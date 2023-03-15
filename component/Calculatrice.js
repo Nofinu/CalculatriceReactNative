@@ -32,7 +32,7 @@ const [lastOperator,setLastOperator]=useState(true)
 
     const operator = ["/","-","+",".","X"]
 
-    const textWidth = {fontSize: (50 - (calcul.length ? Math.floor(calcul.length/1.2):0))}
+    const textWidth = {fontSize: (50 - (calcul.length>0 ? Math.floor(calcul.length/1.2):0)),color:(calcul === ""?"#4E4E4F":"white")}
 
 
 
@@ -79,7 +79,7 @@ const addText=(text)=>{
     <View style={styles.globalContainer}>
       <Text style={{color:"white",fontSize:35}}>Calculatrice</Text>
       <View style={styles.textContainer}>
-        <Text style={[styles.text,textWidth]}>{calcul}</Text>
+        <Text style={[styles.text,textWidth]}>{calcul === ""?0:calcul}</Text>
       </View>
       <View style={styles.btnContainer}>
         {btnTab.map(btn => <Button addText={addText} key={btn.id} text={btn.text} color={btn.color} radius={btn.radius} textColor={btn.textColor} id={btn.id}/>)}
@@ -101,13 +101,13 @@ const styles = StyleSheet.create({
     flexWrap:"wrap",
   },
   textContainer:{
+    marginTop:"20%",
     height:"20%",
     width:"100%",
     flexDirection:"row-reverse",
     alignItems:"center"
   },
   text:{
-    color:"white",
     marginRight:"5%"
   },
 })

@@ -17,8 +17,8 @@ export default function Button(props) {
 
 const styles = StyleSheet.create({
   container:{
-    width:60,
-    height:60,
+    width:70,
+    height:70,
     marginRight:5,
     marginLeft:5,
     marginBottom:15,
