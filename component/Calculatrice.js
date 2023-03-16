@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   btnContainer:{
     justifyContent:"space-evenly",
-    width:"85%",  
+    width:"95%",  
     flexDirection:"row",
     flexWrap:"wrap",
   },
