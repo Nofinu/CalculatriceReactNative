@@ -4,8 +4,9 @@ import Button from './Button'
 
 export default function Calculatrice() {
 
+  const [lastCalcul,setLastCalcul]=useState("")
   const [calcul,setCalcul]=useState("")
-const [lastOperator,setLastOperator]=useState(true)
+  const [lastOperator,setLastOperator]=useState(true)
 
   const btnTab=[
     {text:"Ac",color:"#232227",radius:10,id:1 ,textColor:"white"},
@@ -51,12 +52,12 @@ const addText=(text)=>{
     }
   }
   else if (text === "="){
+    setLastCalcul(calcul)
     setCalcul(eval(calcul))
     setLastOperator(false)
   }
   else{
     if(operator.find(e => e === text) && !lastOperator){
-      console.log(lastOperator)
       setLastOperator(true)
       if(text === "X"){
         setCalcul(calcul+"*")
@@ -78,6 +79,7 @@ const addText=(text)=>{
     <View style={styles.globalContainer}>
       <Text style={styles.containerTitle}>Calculatrice</Text>
       <View style={styles.textContainer}>
+        <Text style={styles.text}>{lastCalcul}</Text>
         <Text style={[styles.text,textWidth]}>{calcul === ""?0:calcul}</Text>
       </View>
       <View style={styles.btnContainer}>
@@ -104,13 +106,15 @@ const styles = StyleSheet.create({
     flexWrap:"wrap",
   },
   textContainer:{
-    marginTop:"20%",
+    marginTop:"10%",
+    marginBottom:"20%",
     height:"20%",
     width:"100%",
-    flexDirection:"row-reverse",
-    alignItems:"center"
+    flexDirection:"column",
+    alignItems:"flex-end"
   },
   text:{
-    marginRight:"5%"
+    marginRight:"5%",
+    color:"white"
   },
 })
